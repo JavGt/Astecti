@@ -1,0 +1,32 @@
+@use '../global//variables' as v;
+
+.table {
+    box-shadow: 0px 5px 10px 0px black;
+	font-family: v.$fuente_p;
+	border-collapse: collapse;
+
+	&__thead {
+		background-color: rgb(132, 172, 218);
+		text-align: center;
+		color: white;
+
+		td {
+			padding: 1rem;
+			font-size: 2rem;
+			font-weight: 700;
+		}
+	}
+	&__tbody {
+		tr {
+			transition: background-color 0.3s ease-in-out;
+			&:hover {
+				background-color: gainsboro;
+			}
+			td {
+				text-align: center;
+				padding: 2rem 1rem;
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
