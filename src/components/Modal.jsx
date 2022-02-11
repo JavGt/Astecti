@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 const Modal = () => {
 	const { id } = useParams();
 
-	const [registro, setRegistro] = useState([]);
+	const [registro, setRegistro] = useState({});
 
 	useEffect(() => {
 		const llamadaApi = async () => {
@@ -14,8 +14,8 @@ const Modal = () => {
 				const resultado = await fetch(url);
 				const respuesta = await resultado.json();
 
-				console.log(respuesta.results);
-				setRegistro(respuesta.results);
+				console.log(...respuesta.results);
+				setRegistro(...respuesta.results);
 			} catch (error) {
 				console.log(error);
 			}
@@ -24,7 +24,7 @@ const Modal = () => {
 		llamadaApi();
 	}, []);
 
-	const [{_id, cityid, state, probabilityofprecip, relativehumidity }]= registro;
+	const {_id, cityid, state, probabilityofprecip, relativehumidity }= registro;
     console.log(_id)
 
 	const llueve = () =>
